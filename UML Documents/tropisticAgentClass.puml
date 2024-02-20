@@ -1,0 +1,15 @@
+@startuml tropisticAgentClass
+left to right direction
+
+class Sensor {
+    -minRange : Integer
+    -maxRange : Integer
+    
+}
+
+class VernierSensor{
+
+}
+
+Sensor <|--VernierSensor
+@enduml

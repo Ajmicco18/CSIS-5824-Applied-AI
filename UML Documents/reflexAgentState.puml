@@ -1,0 +1,19 @@
+@startuml reflexAgentState
+
+left to right direction
+
+state "Activate" as s0
+state "Request" as s1
+state "Receive" as s2
+state "Evaluate" as s3
+state "Assertion" as s4
+
+s0 --> s1 : no user input
+s0 --> s4 : if user inputs assertion
+s1 --> s2
+s2 --> s3
+s3 --> s4
+s4 --> s1
+
+
+@enduml

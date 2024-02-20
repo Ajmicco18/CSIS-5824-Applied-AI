@@ -1,0 +1,20 @@
+@startuml tropistAgentState
+
+left to right direction
+
+state "Activate" as s0
+state "Range" as s1
+state "Measure" as s2
+state "CheckError" as s3
+state "Calculate" as s4
+state "Send" as s5
+
+s0 --> s1
+s1 --> s2
+s2 --> s3 
+s3 --> s4 : 0 <= measurement <= 20000
+s3 --> s1 : measurement < 0 or measurement > 20000
+s4 --> s5
+s5 --> s1
+
+@enduml

@@ -1,0 +1,7 @@
+@startuml reflexAgentClass
+
+class ReflexAgent {
+    range : Integer
+    
+}
+@enduml
