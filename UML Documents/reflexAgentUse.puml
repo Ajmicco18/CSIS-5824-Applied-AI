@@ -1,4 +1,34 @@
 @startuml reflexAgentUse
 
+left to right direction
+
+actor user 
+(Input Assertion)
+(View Agent Evaluation)
+(View Agent Assertion Evaluation)
+(Water Classification)
+(Fresh)
+(Slightly Saline)
+(Moderately Saline)
+(Water Safety)
+(Drinkable)
+(Not Drinkable)
+(Agent Accepts)
+(Agent Refutes)
+
+
+user -- (Input Assertion)
+user -- (View Agent Evaluation)
+user -- (View Agent Assertion Evaluation)
+(View Agent Assertion Evaluation) -- (Agent Accepts)
+(View Agent Assertion Evaluation) -- (Agent Refutes)
+(View Agent Evaluation) -- (Water Classification)
+(View Agent Evaluation) -- (Water Safety)
+(Water Classification) -- (Fresh)
+(Water Classification) -- (Slightly Saline)
+(Water Classification) -- (Moderately Saline)
+(Water Safety) -- (Drinkable)
+(Water Safety) -- (Not Drinkable)
+
 
 @enduml

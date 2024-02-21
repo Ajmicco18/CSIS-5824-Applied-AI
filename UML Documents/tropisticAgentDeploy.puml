@@ -1,3 +1,17 @@
 @startuml tropistAgentDeploy
+left to right direction
 
+node executable
+component tropisticAgent{
+    agent arduino
+}
+component reflexAgent{
+    agent arduino2
+}
+node sensor 
+
+executable .. arduino
+executable -- reflexAgent
+arduino .. sensor
+sensor -- reflexAgent
 @enduml

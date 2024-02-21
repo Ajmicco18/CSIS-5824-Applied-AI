@@ -1,3 +1,17 @@
 @startuml tropistAgentUse
 
+left to right direction
+
+actor user 
+(Set Range)
+(View Calculation)
+(Error)
+(Reset Range)
+
+user -- (Set Range)
+user -- (View Calculation)
+(View Calculation)--(Error)
+(View Calculation)--(Reset Range)
+
+
 @enduml

@@ -1,10 +1,11 @@
 @startuml reflexAgentDeploy
-left to right direction
 
-:ArduinoUser: as a 
-a --> (Hello)
-a --> (Dang)
-a -->(ThisClassSucks)
+node executable
+agent tropisticAgent
+agent reflexAgent
+
+executable -- tropisticAgent
+tropisticAgent -- reflexAgent
 
     
 
