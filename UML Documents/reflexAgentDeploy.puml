@@ -1,11 +1,18 @@
 @startuml reflexAgentDeploy
 
-node executable
-agent tropisticAgent
-agent reflexAgent
+left to right direction
 
-executable -- tropisticAgent
-tropisticAgent -- reflexAgent
+node executable
+
+rectangle tropisticAgent {
+     component arduino
+} 
+rectangle reflexAgent{
+    component recommenderSoftware
+}
+
+executable -- reflexAgent
+reflexAgent -- tropisticAgent
 
     
 

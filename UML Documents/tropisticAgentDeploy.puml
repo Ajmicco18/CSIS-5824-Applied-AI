@@ -2,16 +2,14 @@
 left to right direction
 
 node executable
-component tropisticAgent{
-    agent arduino
-}
-component reflexAgent{
-    agent arduino2
-}
-node sensor 
 
-executable .. arduino
-executable -- reflexAgent
-arduino .. sensor
-sensor -- reflexAgent
+rectangle tropisticAgent {
+     component arduino
+} 
+rectangle reflexAgent{
+    component recommenderSoftware
+}
+
+executable -- tropisticAgent
+tropisticAgent-- reflexAgent
 @enduml
