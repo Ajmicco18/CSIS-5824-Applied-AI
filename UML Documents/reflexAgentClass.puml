@@ -1,7 +1,13 @@
 @startuml reflexAgentClass
 
 class ReflexAgent {
-    range : Integer
-    
+    -measurement : Float
+    -assertion : String
+    --
+    +setState(Function)
+    +requestMeasurement() : String
+    +receiveMeasurement(Float)
+    +evaluateSample(Float) : string
+    +evaluateAssertion(String) : string
 }
 @enduml

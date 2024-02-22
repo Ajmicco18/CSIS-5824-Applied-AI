@@ -2,12 +2,22 @@
 left to right direction
 
 class Sensor {
-    -minRange : Integer
-    -maxRange : Integer
-    
+    -calculation : Float
+    --
+    +setState(Function) 
+    +setMeasurment(Float)
+    +getRange() : Integer
+    +checkError(Float) : Float
+    +calcTDS(Float) : Float
+    +sendCalculation(Float) : Float
 }
 
 class VernierSensor{
+    -range : Integer
+    -measurement : Float
+    --
+    +getMeasurement() : Float
+    +setRange(Integer)
 
 }
 

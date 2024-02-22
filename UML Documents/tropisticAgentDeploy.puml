@@ -7,9 +7,9 @@ rectangle tropisticAgent {
      component arduino
 } 
 rectangle reflexAgent{
-    component recommenderSoftware
+    component evaluationSoftware
 }
 
 executable -- tropisticAgent
-tropisticAgent-- reflexAgent
+tropisticAgent-- reflexAgent : serial transportation 
 @enduml
