@@ -1,3 +1,6 @@
+#include "reflexAgent.h"
+#include "tropisticAgent.h"
+
 void setup() {
   // put your setup code here, to run once:
 
