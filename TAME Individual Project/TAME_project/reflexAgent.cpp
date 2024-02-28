@@ -1,4 +1,5 @@
 #include "reflexAgent.h"
+#include "tropistAgent.cpp"
 
 reflexAgent::reflexAgent(float r, string a){
     measurement = r;
@@ -10,6 +11,8 @@ void reflexAgent::setState(){
 }
 
 void reflexAgent::requestMeasurement(){
+  tropistAgent a; 
+  a.setRange();
 
 }
 

@@ -25,6 +25,12 @@ void tropisticAgent::setRange(int r){
 }
 
 float tropisticAgent::checkError(float m){
+  if (m > 20000 || m < 0){
+    setRange()
+  }
+  else{
+    return m;
+  }
 
 }
 
