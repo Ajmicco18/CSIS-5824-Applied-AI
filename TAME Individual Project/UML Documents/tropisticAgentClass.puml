@@ -1,25 +1,32 @@
 @startuml tropisticAgentClass
 left to right direction
 
-class Sensor {
+class TropisticAgent {
     -calculation : Float
+    -range : Integer
+    -measurement : Float
     --
     +setState(Function) 
     +setMeasurment(Float)
+    +getMeasurement() : Float
+    +setRange(Integer)
     +getRange() : Integer
     +checkError(Float) : Float
     +calcTDS(Float) : Float
     +sendCalculation(Float) : Float
 }
 
-class VernierSensor{
-    -range : Integer
+class ReflexAgent {
     -measurement : Float
+    -assertion : String
     --
-    +getMeasurement() : Float
-    +setRange(Integer)
-
+    +setState(Function)
+    +requestMeasurement() : String
+    +receiveMeasurement(Float)
+    +evaluateSample(Float) : string
+    +evaluateAssertion(String) : string
 }
 
-Sensor <|--VernierSensor
+
+TropisticAgent -- ReflexAgent
 @enduml

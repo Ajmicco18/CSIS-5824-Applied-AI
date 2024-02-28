@@ -1,15 +1,25 @@
 @startuml tropistAgentDeploy
 left to right direction
 
-node executable
 
-rectangle tropisticAgent {
-     component arduino
-} 
-rectangle reflexAgent{
-    component evaluationSoftware
-}
+node arduino[
+    <<device>> 
+     arduino
 
-executable -- tropisticAgent
-tropisticAgent-- reflexAgent : serial transportation 
+    <<artifact>>
+Tropistic Agent Measurement Software
+
+]
+
+node computer[
+    <<device>> 
+     computer
+
+    <<artifact>>
+    Reflex Agent Evaluation Software
+
+]
+
+computer -- arduino : serial transportation
+
 @enduml

@@ -2,17 +2,26 @@
 
 left to right direction
 
-node executable
 
-rectangle tropisticAgent {
-     component arduino
-} 
-rectangle reflexAgent{
-    component evaluationSoftware
-}
+node arduino[
+    <<device>> 
+     arduino
 
-executable -- reflexAgent
-reflexAgent -- tropisticAgent : serial transportation
+    <<artifact>>
+Tropistic Agent Measurement Software
+
+]
+
+node computer[
+    <<device>> 
+     computer
+
+    <<artifact>>
+    Reflex Agent Evaluation Software
+
+]
+
+arduino -- computer : serial transportation
 
     
 

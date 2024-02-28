@@ -1,4 +1,5 @@
 @startuml reflexAgentClass
+left to right direction
 
 class ReflexAgent {
     -measurement : Float
@@ -10,4 +11,21 @@ class ReflexAgent {
     +evaluateSample(Float) : string
     +evaluateAssertion(String) : string
 }
+
+class TropisticAgent {
+    -calculation : Float
+    -range : Integer
+    -measurement : Float
+    --
+    +setState(Function) 
+    +setMeasurment(Float)
+    +getMeasurement() : Float
+    +setRange(Integer)
+    +getRange() : Integer
+    +checkError(Float) : Float
+    +calcTDS(Float) : Float
+    +sendCalculation(Float) : Float
+}
+
+ReflexAgent -- TropisticAgent
 @enduml

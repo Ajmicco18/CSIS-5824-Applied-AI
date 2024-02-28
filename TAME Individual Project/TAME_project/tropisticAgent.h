@@ -21,3 +21,5 @@ class tropisticAgent{
     float measurement;
 
 };
+
+//Class diagram is just a straight line between two diagrams (Associative Relationship)
