@@ -6,14 +6,14 @@ class tropisticAgent{
   tropisticAgent();
 
   public:
-    //void setState(tropisticAgent a);
+    void setState(tropisticAgent a, reflexAgent b, int r, float m);
     float getMeasurement();
     void setMeasurement(float m);
     int getRange();
     void setRange(int r);
     float checkError(float e,  tropisticAgent a);
-    float calcTDS(float t);
-    float sendCalculation(float c);
+    void calcTDS(float t);
+    float sendCalculation();
 
   private:
     float calculation;

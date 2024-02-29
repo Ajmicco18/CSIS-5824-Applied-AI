@@ -1,8 +1,11 @@
 //#include "reflexAgent.h"
 #include "tropisticAgent.h"
+#include "reflexAgent.h"
 #include "VernierLib.h" 
+
 VernierLib Vernier;
 tropisticAgent a
+reflexAgent b;
 
 
 
@@ -16,7 +19,8 @@ void setup() {
 
 void loop() {
   float sensorReading = Vernier.readSensor(); 
-  a.setMeasurement(sensorReading);
+  x = rand(0,20001)
+  a.setSate(a,b,x,sensorReading)
   Serial.println(Vernier.sensorUnits()); 
   delay(500);
 }

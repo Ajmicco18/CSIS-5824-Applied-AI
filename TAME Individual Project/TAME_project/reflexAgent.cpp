@@ -1,37 +1,43 @@
 #include "reflexAgent.h"
+#include "tropisticAgent.h"
 #include <Arduino.h>
 
 reflexAgent::reflexAgent(){}
 
-/*void reflexAgent::setState(reflexAgent a){
+void reflexAgent::setState(tropisticAgent a, reflexAgent b){
   while(true){
     switch (state){
       case 1:
-        a.requestMeasurement();
+        b.requestMeasurement(a);
         state = 2;
         break;
       case 2:
-        a.receiveMeasurement();
+        b.receiveMeasurement(a.sendCalculation());
         state = 3;
         break;
       case 3:
-        a.evaluateSample();
+        b.evaluateSample(b.getMeasurement());
         state = 4;
         break;
       case 4:
-        a.evaluateAssertion();
+        b.evaluateAssertion();
         state = 2;
         break;
     }
   } 
 }
-*/
-void reflexAgent::requestMeasurement(){
+
+void reflexAgent::requestMeasurement(tropisticAgent a){
+  a.setState(a)
 
 }
 
-void reflexAgent::receiveMeasurement(float m){
-  measurement = m;
+void reflexAgent::receiveMeasurement(tropisticAgent a){
+  measurement = a.sendCalculation();
+}
+
+float reflexAgent::getMeasurement(){
+  return measurement;
 }
 
 String reflexAgent::evaluateSample(float s){
@@ -46,6 +52,11 @@ String reflexAgent::evaluateSample(float s){
   }
 }
 
-String reflexAgent::evaluateAssertion(String a){
-  return a;
+String reflexAgent::evaluateAssertion(){
+  if (measurement < 1200){
+    assertion = "Accepted";
+  }else{
+    assertion = "Rejected";
+  }
+  return assertion;
 }

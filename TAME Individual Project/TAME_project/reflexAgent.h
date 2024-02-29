@@ -1,7 +1,6 @@
 #ifndef __REFLEX_AGENT_H
 #define __REFLEX_AGENT_H
 #include <Arduino.h>
-#include "tropisticAgent.h"
 
 
 class reflexAgent{
@@ -9,11 +8,12 @@ class reflexAgent{
   ~reflexAgent() {}
 
   public:
-    //void setState(reflexAgent a);
-    void requestMeasurement();
-    void receiveMeasurement(float m);
+    void setState(tropisticAgent a, reflexAgent b);
+    void requestMeasurement(tropisticAgent a);
+    void receiveMeasurement(tropisticAgent a);
+    float getMeasurement();
     String evaluateSample(float m);
-    String evaluateAssertion(String a);
+    String evaluateAssertion();
    
   private:
     String assertion;

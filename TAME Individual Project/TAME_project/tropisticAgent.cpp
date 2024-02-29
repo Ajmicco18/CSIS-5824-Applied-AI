@@ -1,21 +1,22 @@
 #include "tropisticAgent.h"
+#include "reflexAgent.h"
 #include <Arduino.h>
 
 tropisticAgent::tropisticAgent(){}
 
-void tropisticAgent::setState(tropisticAgent a){
+void tropisticAgent::setState(tropisticAgent a, reflexAgent b, int r, float m){
   while(true){
     switch (state){
       case 1:
-        a.setRange();
+        a.setRange(r);
         state = 2;
         break;
       case 2:
-        a.setMeasurement();
+        a.setMeasurement(m);
         state = 3;
         break;
       case 3:
-        a.checkError();
+        a.checkError(a.getMeasurement());
         state=4;
         break;
       case 4:
@@ -44,25 +45,22 @@ int tropisticAgent::getRange(){
 
 void tropisticAgent::setRange(int r){
       range = r;
-      state = 2;
 }
 
 float tropisticAgent::checkError(float m, tropisticAgent a){
   if (m > 20000 || m < 0){
     state = 1;
-    a.setRange(m);
+    //Determine where to go when error and how to get there
   }
   else{
-    return m;
+    return measurement;
   }
 }
 
-float tropisticAgent::calcTDS(float t){
+void tropisticAgent::calcTDS(float t){
   calculation = t / 2;
-  return calculation;
-
 }
 
-float tropisticAgent::sendCalculation(float c){
-  
+float tropisticAgent::sendCalculation(){
+  return calculation;
 }
