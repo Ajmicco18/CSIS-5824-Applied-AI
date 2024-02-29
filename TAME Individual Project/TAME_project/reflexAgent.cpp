@@ -1,18 +1,32 @@
 #include "reflexAgent.h"
-#include "tropistAgent.cpp"
+#include <Arduino.h>
 
-reflexAgent::reflexAgent(float r, string a){
-    measurement = r;
-    assertion = a;
+reflexAgent::reflexAgent(){}
+
+/*void reflexAgent::setState(reflexAgent a){
+  while(true){
+    switch (state){
+      case 1:
+        a.requestMeasurement();
+        state = 2;
+        break;
+      case 2:
+        a.receiveMeasurement();
+        state = 3;
+        break;
+      case 3:
+        a.evaluateSample();
+        state = 4;
+        break;
+      case 4:
+        a.evaluateAssertion();
+        state = 2;
+        break;
+    }
+  } 
 }
-
-void reflexAgent::setState(){
-
-}
-
+*/
 void reflexAgent::requestMeasurement(){
-  tropistAgent a; 
-  a.setRange();
 
 }
 
@@ -20,10 +34,18 @@ void reflexAgent::receiveMeasurement(float m){
   measurement = m;
 }
 
-string reflexAgent::evaluateSample(float s){
-
+String reflexAgent::evaluateSample(float s){
+  if (s < 1000){
+    return "The sample is fresh water and is drinkable.";
+  }else if (s >= 1000 & s < 1200){
+    return "The sample is slightly saline and drinkable.";
+  }else if (s > 1200 & s < 3000){
+    return "The sample is slightly saline and not drinkable.";
+  }else if(s > 3000){
+    return "The sample is moderately saline and not drinkable.";
+  }
 }
 
-string reflexAgent::evaluateAssertion(string a){
-  
+String reflexAgent::evaluateAssertion(String a){
+  return a;
 }
