@@ -3,15 +3,16 @@
 
 
 class tropisticAgent{
-  tropisticAgent();
+  
 
   public:
-    void setState(tropisticAgent a, reflexAgent b, int r, float m);
+    tropisticAgent();
+    void setState(float m, int r);
     float getMeasurement();
     void setMeasurement(float m);
     int getRange();
     void setRange(int r);
-    float checkError(float e,  tropisticAgent a);
+    float checkError(float e);
     void calcTDS(float t);
     float sendCalculation();
 
@@ -24,4 +25,3 @@ class tropisticAgent{
 };
 
 #endif
-//Class diagram is just a straight line between two diagrams (Associative Relationship)

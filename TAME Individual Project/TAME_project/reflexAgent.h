@@ -1,16 +1,19 @@
 #ifndef __REFLEX_AGENT_H
 #define __REFLEX_AGENT_H
+
 #include <Arduino.h>
+#include "tropisticAgent.h"
 
 
 class reflexAgent{
-  reflexAgent();
-  ~reflexAgent() {}
+ 
 
   public:
-    void setState(tropisticAgent a, reflexAgent b);
-    void requestMeasurement(tropisticAgent a);
-    void receiveMeasurement(tropisticAgent a);
+     reflexAgent();
+    ~reflexAgent() {}
+    void setState(float);
+    void requestMeasurement();
+    void receiveMeasurement(float m);
     float getMeasurement();
     String evaluateSample(float m);
     String evaluateAssertion();

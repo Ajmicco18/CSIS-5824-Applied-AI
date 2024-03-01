@@ -1,10 +1,8 @@
-//#include "reflexAgent.h"
 #include "tropisticAgent.h"
 #include "reflexAgent.h"
-#include "VernierLib.h" 
 
-VernierLib Vernier;
-tropisticAgent a
+
+tropisticAgent a;
 reflexAgent b;
 
 
@@ -13,14 +11,13 @@ void setup() {
   Serial.begin(9600);
   while (!Serial);
   delay(4000);    
-  Vernier.autoID()
 }
 
 
 void loop() {
-  float sensorReading = Vernier.readSensor(); 
-  x = rand(0,20001)
-  a.setSate(a,b,x,sensorReading)
-  Serial.println(Vernier.sensorUnits()); 
+  float sensorReading = analogRead(A0);
+  int x = random(0,20001);
+  a.setState(sensorReading, x);
+  b.setState(sensorReading);
   delay(500);
 }

@@ -4,36 +4,35 @@
 
 reflexAgent::reflexAgent(){}
 
-void reflexAgent::setState(tropisticAgent a, reflexAgent b){
+void reflexAgent::setState(float m){
   while(true){
     switch (state){
       case 1:
-        b.requestMeasurement(a);
+        requestMeasurement();
         state = 2;
         break;
       case 2:
-        b.receiveMeasurement(a.sendCalculation());
+        receiveMeasurement(m);
         state = 3;
         break;
       case 3:
-        b.evaluateSample(b.getMeasurement());
+        evaluateSample(m);
         state = 4;
         break;
       case 4:
-        b.evaluateAssertion();
+        evaluateAssertion();
         state = 2;
         break;
     }
   } 
 }
 
-void reflexAgent::requestMeasurement(tropisticAgent a){
-  a.setState(a)
-
+void reflexAgent::requestMeasurement(){
+    state = 2;
 }
 
-void reflexAgent::receiveMeasurement(tropisticAgent a){
-  measurement = a.sendCalculation();
+void reflexAgent::receiveMeasurement(float m){
+  measurement = m;
 }
 
 float reflexAgent::getMeasurement(){

@@ -4,27 +4,27 @@
 
 tropisticAgent::tropisticAgent(){}
 
-void tropisticAgent::setState(tropisticAgent a, reflexAgent b, int r, float m){
+void tropisticAgent::setState(float m, int r){
   while(true){
     switch (state){
       case 1:
-        a.setRange(r);
+        setRange(r);
         state = 2;
         break;
       case 2:
-        a.setMeasurement(m);
+        setMeasurement(m);
         state = 3;
         break;
       case 3:
-        a.checkError(a.getMeasurement());
+        checkError(getMeasurement());
         state=4;
         break;
       case 4:
-        a.calcTDS();
+        calcTDS(m);
         state = 5;
         break;
       case 5:
-        a.sendCalculation();
+        sendCalculation();
         state = 1;
         break;
     } 
@@ -47,10 +47,9 @@ void tropisticAgent::setRange(int r){
       range = r;
 }
 
-float tropisticAgent::checkError(float m, tropisticAgent a){
+float tropisticAgent::checkError(float m){
   if (m > 20000 || m < 0){
     state = 1;
-    //Determine where to go when error and how to get there
   }
   else{
     return measurement;
